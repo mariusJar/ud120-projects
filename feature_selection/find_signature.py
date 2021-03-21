@@ -2,6 +2,7 @@
 
 import pickle
 import numpy
+from sklearn.metrics import accuracy_score
 numpy.random.seed(42)
 
 
@@ -33,9 +34,11 @@ features_test  = vectorizer.transform(features_test).toarray()
 ### of data points and a large number of features;
 ### train on only 150 events to put ourselves in this regime
 features_train = features_train[:150].toarray()
-labels_train   = labels_train[:150]
+labels_train = labels_train[:150]
 
 
+acc = accuracy_score(features_test, features_train)
+print(acc)
 
 ### your code goes here
 

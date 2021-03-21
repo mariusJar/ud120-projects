@@ -30,15 +30,26 @@ plt.show()
 
 ### your code here!  name your classifier object clf if you want the 
 ### visualization code (prettyPicture) to show you the decision boundary
+# from sklearn.neighbors import NearestNeighbors
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
+
+clf = KNeighborsClassifier(n_neighbors=10)
+clf.fit(features_train, labels_train)
+pred = clf.predict(features_test)
+acc = accuracy_score(pred, labels_test)
+
+print("Accuracy:", acc)
 
 
-
-
-
-
+# Note:
+#     start it in virtualenv using pythonw to see a chart,
+#     but for actual accurcy test needed to comment out all plt releated imports
+#     and run with python
 
 
 try:
+    print("Accuracy:", acc)
     prettyPicture(clf, features_test, labels_test)
 except NameError:
     pass
